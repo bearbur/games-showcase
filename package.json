@@ -1,0 +1,130 @@
+{
+  "name": "games-showcase",
+  "version": "1.0.0",
+  "description": "Games showcase electron app",
+  "main": "main.js",
+  "repository": "https://github.com/bearbur/games-showcase.git",
+  "author": "Victor <bearbur@gmail.com>",
+  "license": "MIT",
+  "lint-staged": {
+    "*.{js,jsx,scss,css,md}": [
+      "prettier --write --single-quote",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "moduleDirectories": [
+      "src",
+      "node_modules"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(jpg|gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    },
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest",
+      ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/node_modules/jest-css-modules-transform"
+    },
+    "setupFilesAfterEnv": ["<rootDir>/setupTests.js"],
+    "moduleFileExtensions": [
+      "css",
+      "scss",
+      "js",
+      "json",
+      "jsx"
+    ]
+  },
+  "scripts": {
+    "start": "yarn run start:app",
+    "start:app": "yarn run build:front && electron .",
+    "start:front:development": "cross-env NODE_ENV=development webpack-dev-server --open",
+    "build:front": "yarn run lint:fix && cross-env NODE_ENV=production webpack",
+    "lint:fix": "eslint './src/**/*.js*' --fix",
+    "test": "jest --coverage"
+  },
+  "engines": {
+    "node": ">=8",
+    "npm": ">=3"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.10.3",
+    "@babel/plugin-proposal-class-properties": "7.10.1",
+    "@babel/plugin-proposal-decorators": "7.10.3",
+    "@babel/plugin-proposal-export-namespace-from": "7.10.1",
+    "@babel/plugin-proposal-function-sent": "7.10.1",
+    "@babel/plugin-proposal-json-strings": "7.10.1",
+    "@babel/plugin-proposal-numeric-separator": "7.10.1",
+    "@babel/plugin-proposal-throw-expressions": "7.10.1",
+    "@babel/plugin-syntax-dynamic-import": "7.8.3",
+    "@babel/plugin-syntax-import-meta": "7.10.1",
+    "@babel/plugin-transform-runtime": "7.10.3",
+    "@babel/preset-env": "7.10.3",
+    "babel-preset-react-optimize": "1.0.1",
+    "@babel/preset-react": "7.10.1",
+    "@babel/register": "7.10.3",
+    "@babel/runtime": "7.10.3",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "10.1.0",
+    "babel-jest": "25.5.1",
+    "babel-loader": "8.1.0",
+    "babel-plugin-lodash": "3.3.4",
+    "browserslist": "4.12.0",
+    "clean-webpack-plugin": "3.0.0",
+    "connect-history-api-fallback": "1.6.0",
+    "cross-env": "7.0.2",
+    "css-loader": "3.6.0",
+    "electron": "^9.0.4",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.2",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-loader": "4.0.2",
+    "eslint-plugin-import": "2.21.2",
+    "eslint-plugin-jest": "23.13.2",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "7.20.0",
+    "eslint-watch": "6.0.1",
+    "file-loader": "6.0.0",
+    "styled-components": "^5.1.1",
+    "html-webpack-plugin": "4.3.0",
+    "script-ext-html-webpack-plugin": "2.1.4",
+    "husky": "4.2.5",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "25.5.4",
+    "jest-css-modules-transform": "4.0.0",
+    "jest-enzyme": "7.1.2",
+    "jest-fetch-mock": "3.0.3",
+    "jsdom": "16.2.2",
+    "lint-staged": "10.2.11",
+    "mini-css-extract-plugin": "0.9.0",
+    "node-sass": "4.14.1",
+    "npm-check-updates": "4.1.2",
+    "prettier": "2.0.5",
+    "pretty-quick": "2.0.1",
+    "sass-loader": "8.0.2",
+    "style-loader": "1.2.1",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.0",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "terser-webpack-plugin": "3.0.6",
+    "webpack-merge": "4.2.2"
+  }
+}
