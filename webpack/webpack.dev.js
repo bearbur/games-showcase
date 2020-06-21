@@ -35,6 +35,7 @@ module.exports = {
     compress: true,
     hot: true,
     port: commonPaths.devPort,
+    historyApiFallback: { disableDotRule: true },
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
 };

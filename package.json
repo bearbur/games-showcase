@@ -13,7 +13,6 @@
       "git add"
     ]
   },
-
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -33,7 +32,9 @@
       "^.+\\.(js|jsx)$": "babel-jest",
       ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/node_modules/jest-css-modules-transform"
     },
-    "setupFilesAfterEnv": ["<rootDir>/setupTests.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.js"
+    ],
     "moduleFileExtensions": [
       "css",
       "scss",
@@ -43,9 +44,10 @@
     ]
   },
   "scripts": {
-    "start": "yarn run start:app",
-    "start:app": "yarn run build:front && electron .",
-    "start:front:development": "cross-env NODE_ENV=development webpack-dev-server --open",
+    "start": "yarn run start:front:development:browser",
+    "start:electron-app:development:server": "cross-env NODE_ENV=development webpack-dev-server",
+    "start:electron-ap:development:client": "electron .",
+    "start:front:development:browser": "cross-env NODE_ENV=development webpack-dev-server --open",
     "build:front": "yarn run lint:fix && cross-env NODE_ENV=production webpack",
     "lint:fix": "eslint './src/**/*.js*' --fix",
     "test": "jest --coverage"
@@ -55,14 +57,20 @@
     "npm": ">=3"
   },
   "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-redux": "7.2.0",
+    "react-router-dom": "^5.2.0",
+    "redux": "4.0.5",
+    "redux-saga": "1.1.3",
+    "styled-components": "5.1.1"
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
   },
   "devDependencies": {
-    "@babel/core": "7.10.3",
+    "@babel/core": "^7.10.3",
+    "@babel/plugin-transform-react-constant-elements": "^7.10.1",
     "@babel/plugin-proposal-class-properties": "7.10.1",
     "@babel/plugin-proposal-decorators": "7.10.3",
     "@babel/plugin-proposal-export-namespace-from": "7.10.1",
@@ -74,15 +82,16 @@
     "@babel/plugin-syntax-import-meta": "7.10.1",
     "@babel/plugin-transform-runtime": "7.10.3",
     "@babel/preset-env": "7.10.3",
-    "babel-preset-react-optimize": "1.0.1",
     "@babel/preset-react": "7.10.1",
     "@babel/register": "7.10.3",
     "@babel/runtime": "7.10.3",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.1.0",
     "babel-jest": "25.5.1",
+    "babel-plugin-styled-components": "^1.10.7",
     "babel-loader": "8.1.0",
     "babel-plugin-lodash": "3.3.4",
+    "babel-preset-react-optimize": "1.0.1",
     "browserslist": "4.12.0",
     "clean-webpack-plugin": "3.0.0",
     "connect-history-api-fallback": "1.6.0",
@@ -102,9 +111,7 @@
     "eslint-plugin-react": "7.20.0",
     "eslint-watch": "6.0.1",
     "file-loader": "6.0.0",
-    "styled-components": "^5.1.1",
     "html-webpack-plugin": "4.3.0",
-    "script-ext-html-webpack-plugin": "2.1.4",
     "husky": "4.2.5",
     "identity-obj-proxy": "3.0.0",
     "jest": "25.5.4",
@@ -116,15 +123,18 @@
     "mini-css-extract-plugin": "0.9.0",
     "node-sass": "4.14.1",
     "npm-check-updates": "4.1.2",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
     "prettier": "2.0.5",
     "pretty-quick": "2.0.1",
     "sass-loader": "8.0.2",
+    "script-ext-html-webpack-plugin": "2.1.4",
     "style-loader": "1.2.1",
+    "terser-webpack-plugin": "3.0.6",
     "webpack": "4.43.0",
     "webpack-cli": "3.3.12",
     "webpack-dev-server": "3.11.0",
-    "optimize-css-assets-webpack-plugin": "5.0.3",
-    "terser-webpack-plugin": "3.0.6",
-    "webpack-merge": "4.2.2"
+    "webpack-merge": "4.2.2",
+    "react-hot-loader": "^4.12.21",
+    "prop-types": "^15.7.2"
   }
 }

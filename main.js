@@ -1,5 +1,5 @@
 const { app, BrowserWindow } = require('electron');
-const path = require('path');
+const paths = require('./webpack/paths');
 
 function createWindow() {
   // Create the browser window.
@@ -8,14 +8,22 @@ function createWindow() {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
+      webSecurity: false,
     },
   });
 
   // and load the index.html of the app.
-  win.loadFile(path.resolve('build', 'index.html'));
+  // win.loadFile(path.resolve('build', 'index.html'));
+
+  // development mode
+  win.loadURL('http://localhost:' + paths.devPort);
+
+  win.setMenu(null);
+
+  win.setResizable(false);
 
   // Open the DevTools.
-  win.webContents.openDevTools();
+  win.webContents.openDevTools({ mode: 'detach' });
 }
 
 // This method will be called when Electron has finished

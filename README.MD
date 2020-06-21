@@ -1,4 +1,4 @@
-####Games showcase electron application
+###### Games showcase electron application
 ##
 *Prerequisites:*
 
