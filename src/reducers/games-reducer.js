@@ -11,12 +11,10 @@ const initialGameState = {
   error: false,
 };
 
-export const gamesReducer = (state = initialGameState, action) => {
+export function gamesReducer(state = initialGameState, action) {
   switch (action.type) {
     case GAMES_REQUEST:
-      return {
-        ...initialGameState,
-      };
+      return initialGameState;
     case GAMES_PROCESSING:
       return {
         ...state,
@@ -38,6 +36,6 @@ export const gamesReducer = (state = initialGameState, action) => {
     default:
       return state;
   }
-};
+}
 
-export const gamesSelector = state => state.data;
+export const gamesSelector = state => state.games.data;

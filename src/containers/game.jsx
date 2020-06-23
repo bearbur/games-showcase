@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation, Redirect } from 'react-router-dom';
-import { GameShowcaseWrapper } from './styled-components/games-showcase-styled-components';
+import GameShowcase from './games-showcase';
+import { GameWrapper } from './styled-components/games-showcase-styled-components';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -18,11 +19,11 @@ const Game = () => {
   // todo find in games by gameSlug
 
   return (
-    <GameShowcaseWrapper>
-      <div>
+    <GameShowcase>
+      <GameWrapper>
         <span>game</span>
-      </div>
-    </GameShowcaseWrapper>
+      </GameWrapper>
+    </GameShowcase>
   );
 };
 

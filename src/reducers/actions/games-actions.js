@@ -6,11 +6,14 @@ import {
 } from '../constants/games-constants';
 import { httpAction } from './utils';
 
-const initialGamesLoading = (requestConfig = null) =>
-  httpAction({
+const initialGamesLoading = (requestConfig = null) => {
+  const requestAction = httpAction({
     type: GAMES_REQUEST,
     requestConfig,
   });
+
+  return requestAction;
+};
 
 const processingGamesLoading = () => ({
   type: GAMES_PROCESSING,

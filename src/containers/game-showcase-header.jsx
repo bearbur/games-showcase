@@ -1,10 +1,28 @@
 import React from 'react';
-import { GameShowcaseHeaderWrapper } from './styled-components/games-showcase-styled-components';
+import { Link } from 'react-router-dom';
+import {
+  GameShowcaseHeaderWrapper,
+  GameShowcaseLogo,
+} from './styled-components/games-showcase-styled-components';
+import SearchPanel from '../components/search-panel.jsx';
+
+const gameShowCaseTitle = 'SHOW';
 
 const GameShowcaseHeader = () => {
   return (
     <GameShowcaseHeaderWrapper>
-      <span>Header</span>
+      <GameShowcaseLogo>
+        <Link
+          to="/"
+          style={{
+            color: 'white',
+            textDecoration: 'none',
+          }}
+        >
+          {gameShowCaseTitle}
+        </Link>
+      </GameShowcaseLogo>
+      <SearchPanel />
     </GameShowcaseHeaderWrapper>
   );
 };
