@@ -38,4 +38,6 @@ export function gamesReducer(state = initialGameState, action) {
   }
 }
 
-export const gamesSelector = state => state.games.data;
+export const gamesSelector = state =>
+  state.games.data.results ? state.games.data.results : [];
+export const gamesProcessingSelector = state => state.games.processing;

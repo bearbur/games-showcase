@@ -3,11 +3,19 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { GamesWrapper } from './styled-components/games-showcase-styled-components';
 import GameShowcase from './games-showcase';
-import { gamesSelector } from '../reducers/games-reducer';
+import {
+  gamesProcessingSelector,
+  gamesSelector,
+} from '../reducers/games-reducer';
 import { gamesActions } from '../reducers/actions/games-actions';
+import endpoints from '../constants/endpoints';
+import GamesPresenterList from '../components/games-presenter-list';
+import GamesFiltration from '../components/games-filtration';
+import GamesPagination from '../components/games-pagination';
 
 const mapStateToProps = state => ({
   games: gamesSelector(state),
+  gamesProcessing: gamesProcessingSelector(state),
 });
 
 const mapDispatchToProps = dispatch => {
@@ -17,26 +25,31 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const Games = ({ games, initialGamesLoading }) => {
+const Games = ({ games, gamesProcessing, initialGamesLoading }) => {
   useEffect(() => {
-    if (Object.values(games).length === 0) {
-      initialGamesLoading();
+    if (games.length === 0 && !gamesProcessing) {
+      initialGamesLoading({
+        url: endpoints.games,
+        method: 'get',
+        data: null,
+      });
     }
   });
 
   return (
     <GameShowcase>
       <GamesWrapper>
-        <div>
-          <span>Games</span>
-        </div>
+        <GamesFiltration />
+        <GamesPresenterList games={games} processing={gamesProcessing} />
+        <GamesPagination />
       </GamesWrapper>
     </GameShowcase>
   );
 };
 
 Games.propTypes = {
-  games: PropTypes.objectOf.isRequired,
+  games: PropTypes.arrayOf(PropTypes.object),
+  gamesProcessing: PropTypes.bool.isRequired,
   initialGamesLoading: PropTypes.func.isRequired,
 };
 

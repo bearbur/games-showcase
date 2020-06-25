@@ -3,15 +3,16 @@ import {
   GAMES_PROCESSING,
   GAMES_REQUEST,
   GAMES_SUCCESS,
+  GAMES,
 } from '../constants/games-constants';
 import { httpAction } from './utils';
 
 const initialGamesLoading = (requestConfig = null) => {
   const requestAction = httpAction({
     type: GAMES_REQUEST,
+    subType: GAMES,
     requestConfig,
   });
-
   return requestAction;
 };
 

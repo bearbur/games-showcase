@@ -1,4 +1,12 @@
-export const GAMES_REQUEST = 'GAMES_REQUEST';
-export const GAMES_PROCESSING = 'GAMES_PROCESSING';
-export const GAMES_SUCCESS = 'GAMES_SUCCESS';
-export const GAMES_ERROR = 'GAMES_ERROR';
+import {
+  httpError,
+  httpProcessing,
+  httpRequest,
+  httpSuccess,
+} from '../actions/utils';
+
+export const GAMES = 'GAMES';
+export const GAMES_REQUEST = httpRequest(GAMES);
+export const GAMES_PROCESSING = httpProcessing(GAMES);
+export const GAMES_SUCCESS = httpSuccess(GAMES);
+export const GAMES_ERROR = httpError(GAMES);
