@@ -6,7 +6,7 @@ import {
 } from './styled-components/games-showcase-styled-components';
 import SearchPanel from '../components/search-panel.jsx';
 
-const gameShowCaseTitle = 'SHOW';
+const gameShowCaseTitle = 'Games Showcase';
 
 const GameShowcaseHeader = () => {
   return (

@@ -3,7 +3,7 @@
 **Prerequisites:**
 
 * Ubuntu Linux
-* Wine 64
+* Wine 64 (for package electron app feature)
 * Yarn
 * NodeJS
 
@@ -14,4 +14,4 @@
 * Start development server at browser: __`yarn run  start`__
 * Start development server for electron app: __`yarn run start:electron-app:development:server`__
 * Start client for electron app: __`yarn run start:electron-ap:development:client`__
-* Tests:** __`yarn run  test`__
+* Tests: __`yarn run  test`__

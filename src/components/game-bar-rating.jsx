@@ -5,10 +5,10 @@ import {
   GameBarLabel,
 } from './styled-components/game-bar-styled-components';
 
-const GameBarRating = ({ rating, ratingTop }) => {
+const GameBarRating = ({ rating }) => {
   return (
     <GameBarRowWrapper>
-      <GameBarLabel>{`Rating: ${rating}/${ratingTop}`}</GameBarLabel>
+      <GameBarLabel>{`Rating: ${rating}.`}</GameBarLabel>
     </GameBarRowWrapper>
   );
 };
@@ -17,5 +17,4 @@ export default GameBarRating;
 
 GameBarRating.propTypes = {
   rating: PropTypes.number,
-  ratingTop: PropTypes.number,
 };

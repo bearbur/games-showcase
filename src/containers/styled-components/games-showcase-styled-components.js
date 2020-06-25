@@ -45,12 +45,14 @@ export const GameWrapper = styled(`div`)`
   grid-row: 2;
   grid-column: 2;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
-  min-height: calc(100vh - 10vh - 2rem);
+  min-height: calc(100vh - 10vh - 5rem);
+
+  padding: 1rem;
 `;
 
 export const GameShowcaseLogo = styled('span')`

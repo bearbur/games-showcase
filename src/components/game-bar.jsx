@@ -24,10 +24,7 @@ const GameBar = ({ gameBarInfo }) => {
     <GameBarWrapper onClick={handleOpenGamePage}>
       <GameBarName>{gameBarInfo.name}</GameBarName>
       <GameBarPoster img={gameBarInfo.background_image} />
-      <GameBarRating
-        rating={gameBarInfo.rating}
-        ratingTop={gameBarInfo.rating_top}
-      />
+      <GameBarRating rating={gameBarInfo.rating} />
       <GameBarReleaseDate released={gameBarInfo.released} />
     </GameBarWrapper>
   );

@@ -31,4 +31,5 @@ export const SearchSubmit = styled('input')`
   padding: 0.5rem;
   border-radius: 10px;
   text-transform: uppercase;
+  cursor: pointer;
 `;

@@ -1,4 +1,5 @@
 import { takeEvery, put } from 'redux-saga/effects';
+import axios from 'axios';
 import {
   HTTP_REQUEST,
   httpError,
@@ -14,19 +15,19 @@ export function* handleRequest(action) {
 
     yield put({ type: httpProcessing(subType) });
 
-    const successResponse = yield fetch(requestConfig.url, {
+    const successResponse = yield axios({
       method: requestConfig.method,
-      mode: 'no-cors',
-      cache: 'no-cache',
+      url: requestConfig.url,
       headers: {
         'Content-Type': 'application/json',
       },
-      body: requestConfig.data ? JSON.stringify(requestConfig.data) : null,
+      data: requestConfig.data ? JSON.stringify(requestConfig.data) : null,
+      params: requestConfig.params ? requestConfig.params : null,
     });
 
-    const parsedResponse = yield successResponse.json();
+    const responseData = yield successResponse.data;
 
-    yield put({ type: httpSuccess(subType), data: parsedResponse });
+    yield put({ type: httpSuccess(subType), data: responseData });
   } catch (e) {
     if (!subType) {
       // eslint-disable-next-line
