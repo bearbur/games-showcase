@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const inactiveBackgroundColor = 'rgba(200,200,200,0.5)';
+export const inactiveBackgroundColor = 'rgba(200,200,200,0.5)';
 const inactiveColor = 'rgba(255,255,255,1)';
 
 export const SearchPanelWrapper = styled('div')`

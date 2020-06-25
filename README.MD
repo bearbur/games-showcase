@@ -1,15 +1,17 @@
 ###### Games showcase electron application
 ##
-*Prerequisites:*
+**Prerequisites:**
 
 * Ubuntu Linux
 * Wine 64
 * Yarn
 * NodeJS
 
-*Commands:*
+**Commands:**
 
-* **Start:** __`yarn && yarn run  start`__
-* **Start Windows App Development Mode:** __`yarn && yarn run start:app`__
-* **Start Windows App Development Mode At Browser:** __`yarn && yarn run start:front:development`__
-* **Tests:** __`yarn && yarn run  test`__
+*For running electron app at development mode you need run electron development server and electron client.*
+
+* Start development server at browser: __`yarn run  start`__
+* Start development server for electron app: __`yarn run start:electron-app:development:server`__
+* Start client for electron app: __`yarn run start:electron-ap:development:client`__
+* Tests:** __`yarn run  test`__
